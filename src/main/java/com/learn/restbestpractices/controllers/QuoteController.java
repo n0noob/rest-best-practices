@@ -13,5 +13,5 @@ public class QuoteController {
 
     @Autowired
     private QuoteService quoteService;
-    
+
 }

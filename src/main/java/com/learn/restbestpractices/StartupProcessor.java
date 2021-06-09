@@ -31,33 +31,33 @@ public class StartupProcessor implements CommandLineRunner {
         authorList.forEach(author -> log.info("List item -> " + author.toString()));
     }
 
-    private Long testAuthorRepository() {
-        Author author = Author.builder()
-                .fullName("Mahatma Gandhi")
-                .dob(LocalDateTime.now())
-                .bioLink("https://en.wikipedia.org/wiki/Mahatma_Gandhi")
-                .build();
-
-        Author persistedAuthor = authorRepository.save(author);
-        log.info("persistedAuthor : " + persistedAuthor );
-
-        return persistedAuthor.getId();
-    }
-
-    public Long testQuoteRepository() {
-        Long authorId = 1L;
-
-        Author author = authorRepository.findById(authorId).orElseThrow();
-
-        Quote quote = Quote.builder()
-                .quoteText("An eye for eye only ends up making the whole world blind.")
-                .author(author)
-                .build();
-
-        Quote persistedQuote = quoteRepository.save(quote);
-        log.info("persistedQuote : " + persistedQuote);
-
-        return persistedQuote.getId();
-    }
+//    private Long testAuthorRepository() {
+//        Author author = Author.builder()
+//                .fullName("Mahatma Gandhi")
+//                .dob(LocalDateTime.now())
+//                .bioLink("https://en.wikipedia.org/wiki/Mahatma_Gandhi")
+//                .build();
+//
+//        Author persistedAuthor = authorRepository.save(author);
+//        log.info("persistedAuthor : " + persistedAuthor );
+//
+//        return persistedAuthor.getId();
+//    }
+//
+//    public Long testQuoteRepository() {
+//        Long authorId = 1L;
+//
+//        Author author = authorRepository.findById(authorId).orElseThrow();
+//
+//        Quote quote = Quote.builder()
+//                .quoteText("An eye for eye only ends up making the whole world blind.")
+//                .author(author)
+//                .build();
+//
+//        Quote persistedQuote = quoteRepository.save(quote);
+//        log.info("persistedQuote : " + persistedQuote);
+//
+//        return persistedQuote.getId();
+//    }
 
 }

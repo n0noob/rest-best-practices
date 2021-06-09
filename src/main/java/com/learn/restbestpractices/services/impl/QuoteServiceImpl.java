@@ -23,12 +23,14 @@ public class QuoteServiceImpl implements QuoteService {
 
     private QuoteMapper quoteMapper = Mappers.getMapper(QuoteMapper.class);
 
+    @Override
     public com.learn.restbestpractices.models.Quote getQuote(Long id) {
         return quoteMapper.map(
                 quoteRepository.findById(id).orElseThrow()
         );
     }
 
+    @Override
     public Long saveQuote(com.learn.restbestpractices.models.Quote quote) {
         Quote quoteEntity = quoteMapper.map(quote);
 
@@ -39,6 +41,7 @@ public class QuoteServiceImpl implements QuoteService {
         return quoteRepository.save(quoteEntity).getId();
     }
 
+    @Override
     public Long updateQuote(com.learn.restbestpractices.models.Quote quote) {
         quoteRepository.findById(quote.getId()).orElseThrow();
 
@@ -51,7 +54,8 @@ public class QuoteServiceImpl implements QuoteService {
         return quoteRepository.save(quoteEntity).getId();
     }
 
-    public boolean removeQuote(Long id) {
+    @Override
+    public boolean deleteQuote(Long id) {
         quoteRepository.deleteById(id);
         return true;
     }

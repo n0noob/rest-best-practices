@@ -8,6 +8,6 @@ public interface QuoteService {
 
     Long updateQuote(com.learn.restbestpractices.models.Quote quote);
 
-    boolean removeQuote(Long id);
+    boolean deleteQuote(Long id);
 
 }
