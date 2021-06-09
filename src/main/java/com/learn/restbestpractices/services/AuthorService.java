@@ -8,6 +8,6 @@ public interface AuthorService {
 
     Long updateAuthor(com.learn.restbestpractices.models.Author author);
 
-    boolean removeAuthor(Long id);
+    boolean deleteAuthor(Long id);
 
 }

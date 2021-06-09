@@ -40,7 +40,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public boolean removeAuthor(Long id) {
+    public boolean deleteAuthor(Long id) {
         authorRepository.deleteById(id);
         return true;
     }
