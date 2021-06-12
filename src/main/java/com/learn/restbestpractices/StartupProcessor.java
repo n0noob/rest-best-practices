@@ -27,8 +27,8 @@ public class StartupProcessor implements CommandLineRunner {
     public void run(String... args) throws Exception {
         //testAuthorRepository();
         //testQuoteRepository();
-        List<Author> authorList = authorRepository.findAll();
-        authorList.forEach(author -> log.info("List item -> " + author.toString()));
+//        List<Author> authorList = authorRepository.findAll();
+//        authorList.forEach(author -> log.info("List item -> " + author.toString()));
     }
 
 //    private Long testAuthorRepository() {

@@ -4,10 +4,7 @@ import com.learn.restbestpractices.models.Quote;
 import com.learn.restbestpractices.services.QuoteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -17,10 +14,28 @@ public class QuoteController {
     @Autowired
     private QuoteService quoteService;
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public Quote getQuote(@PathVariable long id) {
         log.info("Received request for quote id : " + id);
         return quoteService.getQuote(id);
+    }
+
+    @PostMapping("/")
+    public Long addQuote(@RequestBody Quote quote) {
+        log.info("Received request for adding quote : " + quote.toString());
+        return quoteService.saveQuote(quote);
+    }
+
+    @PutMapping("/")
+    public Long updateQuote(@RequestBody Quote quote) {
+        log.info("Received request for updating quote with id : " + quote.getId());
+        return quoteService.updateQuote(quote);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteQuote(@PathVariable long id) {
+        log.info("Received request for deleting quote with id : " + id);
+        quoteService.deleteQuote(id);
     }
 
 }

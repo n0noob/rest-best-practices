@@ -11,6 +11,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Slf4j
 @Service
 public class QuoteServiceImpl implements QuoteService {
@@ -43,7 +45,9 @@ public class QuoteServiceImpl implements QuoteService {
 
     @Override
     public Long updateQuote(com.learn.restbestpractices.models.Quote quote) {
-        quoteRepository.findById(quote.getId()).orElseThrow();
+        if(!quoteRepository.existsById(quote.getId())) {
+           throw new NoSuchElementException("Element not found");
+        }
 
         Quote quoteEntity = quoteMapper.map(quote);
 
