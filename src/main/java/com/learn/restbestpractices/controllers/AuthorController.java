@@ -5,7 +5,10 @@ import com.learn.restbestpractices.services.AuthorService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Api(tags = "Author")
 @Slf4j
@@ -23,7 +26,7 @@ public class AuthorController {
     }
 
     @PostMapping("/")
-    public Long addAuthor(@RequestBody Author author) {
+    public Long addAuthor(@Valid @RequestBody Author author) {
         log.info("Received request for adding author : " + author.toString());
         return authorService.saveAuthor(author);
     }

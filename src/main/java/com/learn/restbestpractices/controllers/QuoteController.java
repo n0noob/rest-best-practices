@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Api(tags = "Quote")
 @Slf4j
 @RestController
@@ -23,7 +25,7 @@ public class QuoteController {
     }
 
     @PostMapping("/")
-    public Long addQuote(@RequestBody Quote quote) {
+    public Long addQuote(@Valid @RequestBody Quote quote) {
         log.info("Received request for adding quote : " + quote.toString());
         return quoteService.saveQuote(quote);
     }
