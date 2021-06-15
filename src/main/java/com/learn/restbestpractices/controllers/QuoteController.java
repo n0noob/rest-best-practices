@@ -2,10 +2,12 @@ package com.learn.restbestpractices.controllers;
 
 import com.learn.restbestpractices.models.Quote;
 import com.learn.restbestpractices.services.QuoteService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Api(tags = "Quote")
 @Slf4j
 @RestController
 @RequestMapping("/quotes/")
